@@ -1,0 +1,60 @@
+<!--Formulario reactivo con validaciones en cada uno de los inputs-->
+<form (ngSubmit)="onSubmit()" [formGroup]="contactForm" class=" needs-validation" novalidate>
+    <div class="container-fluid col-sm-5">
+        <div class="row d-flex justify-content-center align-items-center m-1" style="height: 100vh;">
+            <div>
+                <h3>Formulario</h3>
+                <!--Input nombre, validando el dato ingresado(no acepta caracteres especiales y números)-->
+                <div class="form-floating mb-3 mt-3">
+                    <input type="text" class="form-control" id="Nombre" name="Nombre" required formControlName="Nombre"
+                        placeholder="Ingrese Su nombre">
+                    <label>Nombre</label>
+                    <div *ngIf="contactForm.get('Nombre')?.touched && contactForm.get('Nombre')?.errors?.['required']">
+                        <p style="color: #ce2a2a;">*Este campo es requerido</p>
+                    </div>
+                    <div *ngIf="contactForm.get('Nombre')?.touched && contactForm.get('Nombre')?.errors?.['minlength']">
+                        <p style="color: #ce2a2a;">*Debe tener por lo menos 3 caracteres</p>
+                    </div>
+                    <div *ngIf="contactForm.get('Nombre')?.touched && contactForm.get('Nombre')?.errors?.['pattern']">
+                        <p style="color: #ce2a2a;">*No debe contener caracteres especiales o números</p>
+                    </div>
+                </div>
+                <!--Input Apellido, validando el dato ingresado(no acepta caracteres especiales y números)-->
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="Apellido" name="Apellido" required
+                        formControlName="Apellido" placeholder="Ingrese Su apellido">
+                    <label>Apellido</label>
+                    <div
+                        *ngIf="contactForm.get('Apellido')?.touched && contactForm.get('Apellido')?.errors?.['required']">
+                        <p style="color: #ce2a2a;">*Este campo es requerido</p>
+                    </div>
+                    <div
+                        *ngIf="contactForm.get('Apellido')?.touched && contactForm.get('Apellido')?.errors?.['pattern']">
+                        <p style="color: #ce2a2a;">*No debe contener caracteres especiales o números</p>
+                    </div>
+                </div>
+                <!--Input fecha, validando el dato ingresado(debe ser mayor de edad)-->
+                <div class="form-floating mb-3">
+                    <input type="date" class="form-control" id="FechaNacimiento" name="FechaNacimiento" required
+                        formControlName="FechaNacimiento" placeholder="Ingrese Su fecha de nacimiento">
+                    <label>Fecha de Nacimiento</label>
+                    <div
+                        *ngIf="contactForm.get('FechaNacimiento')?.touched && contactForm.get('FechaNacimiento')?.errors?.['required']">
+                        <p style="color: #ce2a2a;">*Este campo es requerido</p>
+                    </div>
+                    <div
+                        *ngIf="contactForm.get('FechaNacimiento')?.touched && contactForm.get('FechaNacimiento')?.errors?.['age']">
+                        <p style="color: #ce2a2a;">*Debes ser mayor de edad</p>
+                    </div>
+                </div>
+                <!--Envio del formulario, el boton se activa hasta que valida todos los imputs-->
+                <!--Los datos se imprimen en consola-->
+                <div class="btn-group container text-center col-sm-12">
+                    <button type="button" class="btn btn-danger btn-lg " routerLink="/home">Cancelar</button>
+                    <button type="submit" class="btn btn-success btn-lg "
+                        [disabled]="contactForm.invalid">Aceptar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,41 @@
+<!--Navbar-->
+<nav class="navbar navbar-dark bg-dark fixed-top ">
+  <div class="container-fluid">
+    <!--Botón menu-->
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions"
+      aria-controls="offcanvasWithBothOptions">
+      <h6 class="offcanvas-title" id="offcanvasExampleLabel">MENÚ</h6>
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <img src="\assets\img\logo.png" alt="Bootstrap" width="60" height="60">
+    <h5 style="color: #ffffff">Test</h5>
+
+    <!--Contenido botón menú-->
+    <div style="width: 300px;" class="offcanvas offcanvas-start lateral" data-bs-scroll="true" tabindex="-1"
+      id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+      <div class="offcanvas-header header-nb">
+        <h5 class="offcanvas-title" id="offcanvasExampleLabel">Funcionalidades</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <!--Vista del inicio-->
+        <div class="d-grid gap-2">
+          <button class="btn btn-dark" routerLink="/home" data-bs-dismiss="offcanvas">Inicio</button>
+        </div>
+        <br>
+        <!--Vista del formulario-->
+        <div class="d-grid gap-2">
+          <button class="btn btn-dark" routerLink="/form" data-bs-dismiss="offcanvas">Formulario</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!--Footer-->
+<footer class="text-center text-white fixed-bottom" style="background-color: #21081a;">
+  <!-- Contenido centrado -->
+  <div class="text-center p-3" style="background-color: rgb(37, 37, 37);">
+    Said Vara Tiempos
+  </div>
+</footer>

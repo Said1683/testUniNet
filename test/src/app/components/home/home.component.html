@@ -1,0 +1,49 @@
+<br>
+<br>
+<br>
+<br>
+
+<div class="container-fluid col-sm-6">
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h4 class="m-0 font-weight-bold text-secundary">
+                <Fieldset>Películas</Fieldset>
+            </h4>
+        </div>
+        <div class="card-body">
+            <!--Mostramos los episodios ordenados por lanzamiento añadiendo la portada de cada episodio-->
+            <div class="card mb-3" *ngFor="let film of listFilms | sort: 'release_date'">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <a href="/info/1"><img *ngIf="film.episode_id=='4'" src="\assets\img\Anewhope.jpg"
+                                class="img-fluid rounded-start" width="130" height="240"> </a>
+                        <a href="/info/2"><img *ngIf="film.episode_id=='5'"
+                                src="\assets\img\The_Empire_Strikes_Back.jpg" class="img-fluid rounded-start"
+                                width="130"></a>
+                        <a href="/info/3"><img *ngIf="film.episode_id=='6'" src="\assets\img\return_of_the_jedi.jpg"
+                                class="img-fluid rounded-start" width="130"></a>
+                        <a href="/info/4"><img *ngIf="film.episode_id=='1'" src="\assets\img\Phantom_Menace.jpg"
+                                class="img-fluid rounded-start" width="130"></a>
+                        <a href="/info/5"><img *ngIf="film.episode_id=='2'" src="\assets\img\attack_of_the_clones.jpg"
+                                class="img-fluid rounded-start" width="130"></a>
+                        <a href="/info/6"><img *ngIf="film.episode_id=='3'" src="\assets\img\revenge_of_the_sith.jpg"
+                                class="img-fluid rounded-start" width="130"></a>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card-body text-center">
+                            <!--Mostramos datos del episodio-->
+                            <h4 class="card-title" routerLink="/info/{{film.id}}">Título: {{film.title}}</h4>
+                            <p class="card-text">Director: <strong>{{film.director}}</strong></p>
+                            <p class="card-text">No. de episodio: <strong>{{film.episode_id}}</strong></p>
+                            <p class="card-text">Año de lanzamiento:
+                                <strong>{{film.release_date.substring(0,4)}}</strong></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br>
+<br>
